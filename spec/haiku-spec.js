@@ -1,4 +1,4 @@
-import { RomanNumerals } from './../src/js/roman.js';
+import { RomanNumerals } from './../src/js/haiku.js';
 
 describe('the romanNumerals object and it\'s prototypes', function() {
   var reusableOutput;
@@ -9,7 +9,7 @@ describe('the romanNumerals object and it\'s prototypes', function() {
   // });
 
   it('should test if any character that is not a number will not return anything', function() {
-    
+
     expect(newRomanNumerals.numberCruncher("a")).toEqual('');
 
   });

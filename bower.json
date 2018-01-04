@@ -3,7 +3,7 @@
   "description": "haili",
   "main": "gulpfile.js",
   "license": "ISC",
-  "homepage": "https://github.com/alspdx/Roman-Numeralizer",
+  "homepage": "https://github.com/SamKissee/Haiku.git",
   "ignore": [
     "**/.*",
     "node_modules",
