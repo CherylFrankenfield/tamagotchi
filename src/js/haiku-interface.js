@@ -14,9 +14,13 @@ $(document).ready(function() {
     if ((check1 != 5 || check3 != 5 || check2 != 7)) {
       alert("This is not a Haiku")
     } else {
-      $('.result').append(`<li>Line 1 has : ${check.checkSentences(line1)}  syllables</li>
-      <li>Line 2 has: ${check.checkSentences(line2)}  syllables</li>
-      <li>Line 3 has: ${check.checkSentences(line3)}  syllables</li>`);
+      // $('.result').append(`<li>Line 1 has : ${check.checkSentences(line1)}  syllables</li>
+      // <li>Line 2 has: ${check.checkSentences(line2)}  syllables</li>
+      // <li>Line 3 has: ${check.checkSentences(line3)}  syllables</li>`);
+      $('.line1').empty();
+      $('.line2').empty();
+      $('.line3').empty();
+
       $('.line1').append(line1);
       $('.line2').append(line2);
       $('.line3').append(line3);
@@ -35,9 +39,9 @@ $(document).ready(function() {
     let random1 = Generate.fiveSyllable[i];
     let random2 = Generate.sevenSyllable[x];
     let random3 = Generate.fiveSyllable[y];
-    $('.line1').empty(random1);
-    $('.line2').empty(random2);
-    $('.line3').empty(random3);
+    $('.line1').empty();
+    $('.line2').empty();
+    $('.line3').empty();
 
     $('.line1').append(random1);
     $('.line2').append(random2);
