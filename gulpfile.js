@@ -21,9 +21,13 @@ var lib = require('bower-files')({
 var browserSync = require('browser-sync').create();
 var babelify = require('babelify');
 
-gulp.task('copyHtml', function() {
+gulp.task('copyHtml', ['copyCss'], function() {
   gulp.src('src/index.html')
     .pipe(gulp.dest('dist/'));
+});
+gulp.task('copyCss', function() {
+  gulp.src('src//css/styles.css')
+    .pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('concatInterface', function() {

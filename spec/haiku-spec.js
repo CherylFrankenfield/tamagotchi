@@ -24,4 +24,10 @@ describe('Haiku', function() {
 
     expect(haiku.checkSentences("An old silent pond")).toEqual(5);
   });
+
+  it('it checks for outside', function() {
+    let haiku = new Haiku();
+
+    expect(haiku.checkVowels("outside")).toEqual(2);
+  });
 });

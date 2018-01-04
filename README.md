@@ -39,3 +39,10 @@
 
   output:
     count - 1;
+
+5: Check for diphthong in word and count them as one vowel
+
+  input:
+    hear
+  output:
+    1
