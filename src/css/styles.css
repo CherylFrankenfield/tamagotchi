@@ -1,17 +1,8 @@
 body {
-  text-align: center;
-}
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: Black;
 }
 
-form, .secondary {
-  display: flex;
-  flex-direction: column;
-}
-input, button {
-  margin: 10px;
+
+.game-play {
+  display: none;
 }

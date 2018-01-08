@@ -104,4 +104,6 @@ gulp.task('serve', function() {
 
   gulp.watch(['src/js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
+  gulp.watch(['src/css/*.css'], ['copyCss']);
+  gulp.watch(['src/index.html'], ['copyHtml']);
 });

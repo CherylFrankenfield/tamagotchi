@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Haiku</title>
+    <title>Tamagotchi</title>
     <script src="js/vendor.min.js"></script>
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -11,38 +11,29 @@
   <body>
     <div class="container">
       <header>
-        <div class="jumbotron">
-          <h1>Haiku Checker</h1>
-        </div>
+        <h1>Tamagotchi!</h1>
       </header>
-      <section>
-        <div class="main">
-          <h2>Enter Your Haiku</h2>
-          <form id="form" action="index.html" method="post">
-            <label for="line1">Enter Line 1</label>
-            <input id="line1" type="text" name="line1">
-            <label for="line1">Enter Line 2</label>
-            <input id="line2" type="text" name="line2">
-            <label for="line1">Enter Line 3</label>
-            <input id="line3" type="text" name="line3">
-            <button class="btn btn-success" type="submit" name="button">Submit</button>
+      <div class="start-game">
+        <form id="start">
+          <label for="tamagotchi-name">Enter your Pet's Name:</label>
+          <input id="name" name="tamagotchi-name">
+          <button class="btn btn-dark" type="submit" name="button">Start Game</button>
+        </form>
+      </div>
+      <div class="game-play">
+        <h3 class="petName"></h3>
+        <div class="pet-area">
 
-          </form>
-          <div class="secondary">
-            <h2>Randomly Generate a Haiku</h2>
-            <button class="btn btn-primary" id="generate" type="button" name="button">Generate</button>
-          </div>
-          <div >
-            <ul class="result">
-
-            </ul>
-            <h3 class="line1"></h3>
-            <h3 class="line2"></h3>
-            <h3 class="line3"></h3>
-          </div>
         </div>
-
-      </section>
+        <div class="levels">
+          <h4 class="foodLevel"></h4>
+          <h4 class="sleepLevel"></h4>
+          <h4 class="playLevel"></h4>
+        </div>
+        <button class="btn btn-light"  id="feed" type="button" name="button">Feed</button>
+        <button class="btn btn-light" id="play" type="button" name="button">Play</button>
+        <button class="btn btn-light" id="sleep" type="button" name="button">Nap Me</button>
+      </div>
     </div>
   </body>
 </html>
