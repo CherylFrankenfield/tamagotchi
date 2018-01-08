@@ -14,39 +14,39 @@ $(document).ready(function() {
     $('.game-play').show();
     $('.start-game').hide();
     $('.petName').append(nameInput);
-    $('.foodLevel').append(newPet.foodLevel);
-    $('.sleepLevel').append(newPet.sleepLevel);
-    $('.playLevel').append(newPet.playLevel);
+    $('.foodLevel').append(`F:` + newPet.foodLevel);
+    $('.sleepLevel').append(`S:` + newPet.sleepLevel);
+    $('.playLevel').append(`P:` + newPet.playLevel);
 
     let test = setInterval(function(){
-      $('.foodLevel').text(newPet.foodLevel);
-      $('.sleepLevel').text(newPet.sleepLevel);
-      $('.playLevel').text(newPet.playLevel);
+      $('.foodLevel').text(`F:` + newPet.foodLevel);
+      $('.sleepLevel').text(`S:` + newPet.sleepLevel);
+      $('.playLevel').text(`P:` + newPet.playLevel);
       newPet.areYouDead();
       if(newPet.areYouDead() === true){
         $('.game-play').hide();
-        alert('Game Over');
+        alert(`You Killed ${nameInput}`);
         clearInterval(test);
       };
     }, 1001);
   });
   $('#feed').click(function() {
     newPet.feedMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text(`F:` + newPet.foodLevel);
+    $('.sleepLevel').text(`S:` + newPet.sleepLevel);
+    $('.playLevel').text(`P:` + newPet.playLevel);
   });
   $('#sleep').click(function() {
     newPet.sleepMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text(`F:` + newPet.foodLevel);
+    $('.sleepLevel').text(`S:` + newPet.sleepLevel);
+    $('.playLevel').text(`P:` + newPet.playLevel);
   });
   $('#play').click(function() {
     newPet.playMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text(`F:` + newPet.foodLevel);
+    $('.sleepLevel').text(`S:` + newPet.sleepLevel);
+    $('.playLevel').text(`P:` + newPet.playLevel);
   });
 
 });

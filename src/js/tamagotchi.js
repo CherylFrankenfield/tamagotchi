@@ -9,7 +9,7 @@ export class Tamagotchi {
 
   setHunger() {
     setInterval(() => {
-      if(this.foodLevel === -1){
+      if(this.foodLevel === 0){
         return this.foodLevel;
       } else {
         this.foodLevel--;
@@ -19,7 +19,7 @@ export class Tamagotchi {
 
   setPlay() {
     setInterval(() => {
-      if(this.playLevel === -1){
+      if(this.playLevel === 0){
         return this.playLevel;
       } else {
         this.playLevel--;
@@ -29,7 +29,7 @@ export class Tamagotchi {
 
   setEnergy() {
     setInterval(() => {
-      if(this.sleepLevel === -1){
+      if(this.sleepLevel === 0){
         return this.sleepLevel;
       } else {
         this.sleepLevel--;
@@ -75,7 +75,7 @@ export class Tamagotchi {
   }
 
   areYouDead() {
-    if ((this.foodLevel === -1) && (this.sleepLevel === -1) && (this.playLevel === -1)) {
+    if ((this.foodLevel === 0) && (this.sleepLevel === 0) && (this.playLevel === 0)) {
       return true;
 
     } else {

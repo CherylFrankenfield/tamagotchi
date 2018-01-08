@@ -25,7 +25,7 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this = this;
 
       setInterval(function () {
-        if (_this.foodLevel === -1) {
+        if (_this.foodLevel === 0) {
           return _this.foodLevel;
         } else {
           _this.foodLevel--;
@@ -38,7 +38,7 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this2 = this;
 
       setInterval(function () {
-        if (_this2.playLevel === -1) {
+        if (_this2.playLevel === 0) {
           return _this2.playLevel;
         } else {
           _this2.playLevel--;
@@ -51,7 +51,7 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this3 = this;
 
       setInterval(function () {
-        if (_this3.sleepLevel === -1) {
+        if (_this3.sleepLevel === 0) {
           return _this3.sleepLevel;
         } else {
           _this3.sleepLevel--;
@@ -103,7 +103,7 @@ var Tamagotchi = exports.Tamagotchi = function () {
   }, {
     key: "areYouDead",
     value: function areYouDead() {
-      if (this.foodLevel === -1 && this.sleepLevel === -1 && this.playLevel === -1) {
+      if (this.foodLevel === 0 && this.sleepLevel === 0 && this.playLevel === 0) {
         return true;
       } else {
         return false;
@@ -133,39 +133,39 @@ $(document).ready(function () {
     $('.game-play').show();
     $('.start-game').hide();
     $('.petName').append(nameInput);
-    $('.foodLevel').append(newPet.foodLevel);
-    $('.sleepLevel').append(newPet.sleepLevel);
-    $('.playLevel').append(newPet.playLevel);
+    $('.foodLevel').append('F:' + newPet.foodLevel);
+    $('.sleepLevel').append('S:' + newPet.sleepLevel);
+    $('.playLevel').append('P:' + newPet.playLevel);
 
     var test = setInterval(function () {
-      $('.foodLevel').text(newPet.foodLevel);
-      $('.sleepLevel').text(newPet.sleepLevel);
-      $('.playLevel').text(newPet.playLevel);
+      $('.foodLevel').text('F:' + newPet.foodLevel);
+      $('.sleepLevel').text('S:' + newPet.sleepLevel);
+      $('.playLevel').text('P:' + newPet.playLevel);
       newPet.areYouDead();
       if (newPet.areYouDead() === true) {
         $('.game-play').hide();
-        alert('Game Over');
+        alert('You Killed ' + nameInput);
         clearInterval(test);
       };
     }, 1001);
   });
   $('#feed').click(function () {
     newPet.feedMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text('F:' + newPet.foodLevel);
+    $('.sleepLevel').text('S:' + newPet.sleepLevel);
+    $('.playLevel').text('P:' + newPet.playLevel);
   });
   $('#sleep').click(function () {
     newPet.sleepMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text('F:' + newPet.foodLevel);
+    $('.sleepLevel').text('S:' + newPet.sleepLevel);
+    $('.playLevel').text('P:' + newPet.playLevel);
   });
   $('#play').click(function () {
     newPet.playMe();
-    $('.foodLevel').text(newPet.foodLevel);
-    $('.sleepLevel').text(newPet.sleepLevel);
-    $('.playLevel').text(newPet.playLevel);
+    $('.foodLevel').text('F:' + newPet.foodLevel);
+    $('.sleepLevel').text('S:' + newPet.sleepLevel);
+    $('.playLevel').text('P:' + newPet.playLevel);
   });
 });
 
