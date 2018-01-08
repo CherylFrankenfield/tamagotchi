@@ -25,7 +25,11 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this = this;
 
       setInterval(function () {
-        _this.foodLevel--;
+        if (_this.foodLevel === -1) {
+          return _this.foodLevel;
+        } else {
+          _this.foodLevel--;
+        }
       }, 2000);
     }
   }, {
@@ -34,7 +38,11 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this2 = this;
 
       setInterval(function () {
-        _this2.playLevel--;
+        if (_this2.playLevel === -1) {
+          return _this2.playLevel;
+        } else {
+          _this2.playLevel--;
+        }
       }, 4000);
     }
   }, {
@@ -43,7 +51,11 @@ var Tamagotchi = exports.Tamagotchi = function () {
       var _this3 = this;
 
       setInterval(function () {
-        _this3.sleepLevel--;
+        if (_this3.sleepLevel === -1) {
+          return _this3.sleepLevel;
+        } else {
+          _this3.sleepLevel--;
+        }
       }, 5000);
     }
   }, {
@@ -91,7 +103,7 @@ var Tamagotchi = exports.Tamagotchi = function () {
   }, {
     key: "areYouDead",
     value: function areYouDead() {
-      if (this.foodLevel === 0 && this.sleepLevel === 0 && this.playLevel === 0) {
+      if (this.foodLevel === -1 && this.sleepLevel === -1 && this.playLevel === -1) {
         return true;
       } else {
         return false;
@@ -107,24 +119,53 @@ var Tamagotchi = exports.Tamagotchi = function () {
 
 var _tamagotchi = require('./../src/js/tamagotchi.js');
 
+var newPet = new _tamagotchi.Tamagotchi();
+
 $(document).ready(function () {
   $('form#start').submit(function (event) {
     event.preventDefault();
     var nameInput = $('#name').val();
-    var newPet = new _tamagotchi.Tamagotchi(nameInput);
+    newPet.name = nameInput;
     newPet.setHunger();
     newPet.setPlay();
     newPet.setEnergy();
+    newPet.areYouDead();
     $('.game-play').show();
     $('.start-game').hide();
     $('.petName').append(nameInput);
     $('.foodLevel').append(newPet.foodLevel);
     $('.sleepLevel').append(newPet.sleepLevel);
     $('.playLevel').append(newPet.playLevel);
-    if (newPet.foodLevel < 10) {
-      document.getElementsByClassName('.foodLevel').innerHTML = "Food Level: " + this.foodLevel;
-    };
-    console.log(newPet.foodLevel);
+
+    var test = setInterval(function () {
+      $('.foodLevel').text(newPet.foodLevel);
+      $('.sleepLevel').text(newPet.sleepLevel);
+      $('.playLevel').text(newPet.playLevel);
+      newPet.areYouDead();
+      if (newPet.areYouDead() === true) {
+        $('.game-play').hide();
+        alert('Game Over');
+        clearInterval(test);
+      };
+    }, 1001);
+  });
+  $('#feed').click(function () {
+    newPet.feedMe();
+    $('.foodLevel').text(newPet.foodLevel);
+    $('.sleepLevel').text(newPet.sleepLevel);
+    $('.playLevel').text(newPet.playLevel);
+  });
+  $('#sleep').click(function () {
+    newPet.sleepMe();
+    $('.foodLevel').text(newPet.foodLevel);
+    $('.sleepLevel').text(newPet.sleepLevel);
+    $('.playLevel').text(newPet.playLevel);
+  });
+  $('#play').click(function () {
+    newPet.playMe();
+    $('.foodLevel').text(newPet.foodLevel);
+    $('.sleepLevel').text(newPet.sleepLevel);
+    $('.playLevel').text(newPet.playLevel);
   });
 });
 

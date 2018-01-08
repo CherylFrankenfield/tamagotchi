@@ -9,21 +9,34 @@ export class Tamagotchi {
 
   setHunger() {
     setInterval(() => {
-      this.foodLevel--;
+      if(this.foodLevel === -1){
+        return this.foodLevel;
+      } else {
+        this.foodLevel--;
+      }
     }, 2000);
   }
 
   setPlay() {
     setInterval(() => {
-      this.playLevel--;
+      if(this.playLevel === -1){
+        return this.playLevel;
+      } else {
+        this.playLevel--;
+      }
     }, 4000);
   }
 
   setEnergy() {
     setInterval(() => {
-      this.sleepLevel--;
+      if(this.sleepLevel === -1){
+        return this.sleepLevel;
+      } else {
+        this.sleepLevel--;
+      }
     }, 5000);
   }
+
 
   amIHungry() {
     if (this.foodLevel > 0) {
@@ -62,8 +75,9 @@ export class Tamagotchi {
   }
 
   areYouDead() {
-    if ((this.foodLevel === 0) && (this.sleepLevel === 0) && (this.playLevel === 0)) {
+    if ((this.foodLevel === -1) && (this.sleepLevel === -1) && (this.playLevel === -1)) {
       return true;
+
     } else {
       return false;
     }

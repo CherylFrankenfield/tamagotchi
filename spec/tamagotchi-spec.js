@@ -80,10 +80,10 @@ describe('Tamagotchi', function() {
     expect(tamagotchi.playLevel).toEqual(10);
   });
 
-  it('should return You Killed Your Tamagotchi if all levels drop to zero', function(){
-    tamagotchi.foodLevel = 0;
-    tamagotchi.sleepLevel = 0;
-    tamagotchi.playLevel = 0;
+  it('should return You Killed Your Tamagotchi if all levels drop below zero', function(){
+    tamagotchi.foodLevel = -1;
+    tamagotchi.sleepLevel = -1;
+    tamagotchi.playLevel = -1;
     expect(tamagotchi.areYouDead()).toEqual(true);
   });
 
