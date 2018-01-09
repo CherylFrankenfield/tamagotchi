@@ -17,8 +17,8 @@ let poke = P.getPokemonByName('bulbasaur') // with Promise
    console.log(response);
    console.log(response.stats[0].stat.name);
    $("#pokename").append(response.name);
-   $("#ability1").append(response.);
-   $("#ability2").append(response.);
+   $("#ability1").append(response.abilities[0].ability.name);
+   $("#ability2").append(response.abilities[1].ability.name);
    $("#stat1").append(response.stats[0].stat.name);
    $("#stat2").append(response.stats[1].stat.name);
    $("#stat3").append(response.stats[2].stat.name);
@@ -80,3 +80,35 @@ $(document).ready(function() {
   });
 
 });
+
+var Twitter = require('twitter');
+var tokens = require('twitter-tokens');
+var twitterMentions = require('twitter-mentions');
+var env = require('dotenv').config();
+
+
+var apiKey = require('./../.env').apiKey;
+var apiKeySec = require('./../.env').apiKey2;
+var apiAccess = require('./../.env').Access;
+var apiAccessSecret = require('./../.env').AccessSecret;
+
+
+var client = new Twitter({
+  consumer_key: process.env.apiKey,
+  consumer_secret: process.env.apiKeySec,
+  access_token: process.env.apiAccess,
+  access_token_secret: process.env.apiAccessSecret
+});
+
+client.get('favorites/list', function(error, tweets, response) {
+  if(error) throw error;
+  console.log(tweets);  // The favorites.
+  console.log(response);  // Raw response object.
+});
+
+// twitterMentions(client, '424119506508980224').then(mentions => {
+//   console.log(mentions); // [{…}, {…}, …]
+// });
+
+
+// https://api.twitter.com/1.1/search/tweets.json?q=%40twitterapi?src=typd&q=%23bulbasaur

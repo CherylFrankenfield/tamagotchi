@@ -48,8 +48,11 @@
     "watchify": "^3.9.0"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "pokeapi-js-wrapper": "^1.1.1",
     "pokedex-promise-v2": "^3.1.1",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "twitter-mentions": "^3.0.0",
+    "twitter-tokens": "^1.0.3"
   }
 }
