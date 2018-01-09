@@ -47,5 +47,8 @@
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "pokeapi-js-wrapper": "^1.1.1",
+    "pokedex-promise-v2": "^3.1.1"
+  }
 }
