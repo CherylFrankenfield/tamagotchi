@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "pokeapi-js-wrapper": "^1.1.1",
-    "pokedex-promise-v2": "^3.1.1"
+    "pokedex-promise-v2": "^3.1.1",
+    "twitter": "^1.7.1"
   }
 }
