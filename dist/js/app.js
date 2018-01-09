@@ -120,7 +120,6 @@ var Tamagotchi = exports.Tamagotchi = function () {
 var _tamagotchi = require('./../src/js/tamagotchi.js');
 
 var newPet = new _tamagotchi.Tamagotchi();
-
 $(document).ready(function () {
   $('form#start').submit(function (event) {
     event.preventDefault();
@@ -143,7 +142,7 @@ $(document).ready(function () {
       $('.playLevel').text('P:' + newPet.playLevel);
       newPet.areYouDead();
       if (newPet.areYouDead() === true) {
-        $('.game-play').hide();
+        $('.pet').hide();
         alert('You Killed ' + nameInput);
         clearInterval(test);
       };

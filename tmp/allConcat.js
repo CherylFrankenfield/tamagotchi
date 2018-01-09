@@ -1,7 +1,5 @@
 import { Tamagotchi } from './../src/js/tamagotchi.js';
-
 const newPet = new Tamagotchi();
-
 $(document).ready(function() {
   $('form#start').submit(function(event) {
     event.preventDefault();
@@ -24,11 +22,13 @@ $(document).ready(function() {
       $('.playLevel').text(`P:` + newPet.playLevel);
       newPet.areYouDead();
       if(newPet.areYouDead() === true){
-        $('.game-play').hide();
+        $('.pet').hide();
         alert(`You Killed ${nameInput}`);
         clearInterval(test);
       };
     }, 1001);
+
+
   });
   $('#feed').click(function() {
     newPet.feedMe();
