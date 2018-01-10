@@ -68,3 +68,13 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.pokeAPI{
+  position: relative;
+
+}
+
+#pokelist {
+  position: absolute;
+  left: 75%
+}
